@@ -19,28 +19,10 @@
       "Krixon\\StateMachine\\Test\\": "tests/"
     }
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://bitbucket.org/krixon/money.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://bitbucket.org/krixon/datetime.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://bitbucket.org/krixon/math.git"
-    },
-    {
-      "type": "vcs",
-      "url": "https://bitbucket.org/krixon/identity.git"
-    }
-  ],
   "require": {
-    "php": ">=7"
+    "php": ">=7.3"
   },
   "require-dev": {
-    "phpunit/phpunit": "5.4.*"
+    "phpunit/phpunit": "^8.0"
   }
 }
