@@ -43,4 +43,13 @@ interface StateMachine
      * @throws UnknownState If a state is specified but is not known.
      */
     public function allowed(string $from = null) : array;
+
+    /**
+     * Determines if this machine is in the same state as another.
+     *
+     * Note that this does not imply that the machines themselves are equal. For example, the set of known states
+     * and allowed transitions might be different between instances, but as long as they are in the same current
+     * state, they are considered to be equal ($a->current() === $b->current()).
+     */
+    public function equals(StateMachine $other) : bool;
 }

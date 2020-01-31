@@ -8,6 +8,7 @@ use Krixon\StateMachine\Exception\IllegalTransition;
 use Krixon\StateMachine\Exception\UnknownState;
 use function array_key_exists;
 use function array_keys;
+use function get_class;
 use function in_array;
 
 class MappedStateMachine implements StateMachine
@@ -105,6 +106,14 @@ class MappedStateMachine implements StateMachine
         }
 
         return $this->map[$from];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function equals(StateMachine $other) : bool
+    {
+        return $this->current === $other->current();
     }
 
     private function assertKnownState(string ...$states) : void

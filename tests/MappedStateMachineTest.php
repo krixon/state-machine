@@ -154,6 +154,23 @@ class MappedStateMachineTest extends TestCase
         self::assertEqualsCanonicalizing(['FIRST', 'THIRD'], $state->allowed('SECOND'));
     }
 
+    /**
+     * @covers ::equals
+     */
+    public function testCanDetermineIfEqual() : void
+    {
+        $a = $this->defaultMachine();
+        $b = $this->defaultMachine();
+
+        static::assertTrue($a->equals($b));
+        static::assertTrue($b->equals($a));
+
+        $a->transition('FIRST');
+
+        static::assertFalse($a->equals($b));
+        static::assertFalse($b->equals($a));
+    }
+
     private function defaultMachine() : MappedStateMachine
     {
         return new MappedStateMachine(
